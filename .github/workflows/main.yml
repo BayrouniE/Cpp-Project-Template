@@ -1,0 +1,21 @@
+name: Ubuntu CI Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: building
+      run: |
+        make all -j4
+    - name: testing
+      run: |
+        cd build
+        cd tests
+        ./unit_tests
