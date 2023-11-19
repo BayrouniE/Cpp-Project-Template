@@ -1,0 +1,8 @@
+add_subdirectory(lib)
+
+set(EXE_SOURCES "main.cpp") 
+set(EXE_INCLUDES "./lib")
+
+add_executable(${EXECUTABLE_NAME} ${EXE_SOURCES})
+target_include_directories(${EXECUTABLE_NAME} PUBLIC ${EXE_INCLUDES})
+target_link_libraries(${EXECUTABLE_NAME} PUBLIC ${LIBRARY_NAME})
